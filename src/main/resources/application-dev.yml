@@ -1,7 +1,7 @@
 spring:
   data.mongodb:
     database: products                 # Database name.
-    uri: mongodb://localhost:27017    # Mongo database URI. Cannot be set with host, port and credentials.
+    uri: mongodb://mongo-prod:27017    # Mongo database URI. Cannot be set with host, port and credentials.
   
   kafka:
 #    bootstrap-servers: localhost:9092
