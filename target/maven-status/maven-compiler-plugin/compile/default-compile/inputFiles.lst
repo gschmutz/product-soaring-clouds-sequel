@@ -1,0 +1,14 @@
+/Users/gus/workspace/git/gschmutz/aced/guido-owner/product-soaring-clouds-sequel/src/main/java/com/soaringclouds/product/event/ProductEventConsumer.java
+/Users/gus/workspace/git/gschmutz/aced/guido-owner/product-soaring-clouds-sequel/src/main/java/com/soaringclouds/product/Application.java
+/Users/gus/workspace/git/gschmutz/aced/guido-owner/product-soaring-clouds-sequel/src/main/java/com/soaringclouds/product/model/DimensionDO.java
+/Users/gus/workspace/git/gschmutz/aced/guido-owner/product-soaring-clouds-sequel/src/main/java/com/soaringclouds/product/service/ProductServiceImpl.java
+/Users/gus/workspace/git/gschmutz/aced/guido-owner/product-soaring-clouds-sequel/src/main/java/com/soaringclouds/product/KafkaConfig.java
+/Users/gus/workspace/git/gschmutz/aced/guido-owner/product-soaring-clouds-sequel/src/main/java/com/soaringclouds/product/api/ProductConverter.java
+/Users/gus/workspace/git/gschmutz/aced/guido-owner/product-soaring-clouds-sequel/src/main/java/com/soaringclouds/product/api/ProductController.java
+/Users/gus/workspace/git/gschmutz/aced/guido-owner/product-soaring-clouds-sequel/src/main/java/com/soaringclouds/product/api/DimensionApi.java
+/Users/gus/workspace/git/gschmutz/aced/guido-owner/product-soaring-clouds-sequel/src/main/java/com/soaringclouds/product/converter/ProductConverter.java
+/Users/gus/workspace/git/gschmutz/aced/guido-owner/product-soaring-clouds-sequel/src/main/java/com/soaringclouds/product/model/ProductDO.java
+/Users/gus/workspace/git/gschmutz/aced/guido-owner/product-soaring-clouds-sequel/src/main/java/com/soaringclouds/product/repository/ProductRepository.java
+/Users/gus/workspace/git/gschmutz/aced/guido-owner/product-soaring-clouds-sequel/src/main/java/com/soaringclouds/product/event/ProductEventProducer.java
+/Users/gus/workspace/git/gschmutz/aced/guido-owner/product-soaring-clouds-sequel/src/main/java/com/soaringclouds/product/api/ProductApi.java
+/Users/gus/workspace/git/gschmutz/aced/guido-owner/product-soaring-clouds-sequel/src/main/java/com/soaringclouds/product/service/ProductService.java

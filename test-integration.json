@@ -1,0 +1,43 @@
+[
+  {
+    "id":"e98aa22a-0dd1-477a-a520-c9118e85b444",
+    "clientId":"fa39758a-916a-43da-9334-e82b17c4629d",
+    "source":"$UBSYS-2",
+    "destination":"",
+    "priority":"MEDIUM",
+    "reliability":"BEST_EFFORT",
+    "eventTime":1510131959088,
+    "sender":"",
+    "type":"DATA",
+    "properties":{
+    },
+    "direction":"FROM_IOTCS",
+    "receivedTime":1510131959088,
+    "sentTime":1510131959099,
+    "payload":
+      {
+        "format":"urn:com:thyssenkrupp.tkse.iotsim:Messreihe:Integration",
+        "data":{
+          "auftrag_id": "fjdlkfdjsölkgfdjajdsasdsajfs",
+          "data_fapo_nr": 4379863,
+          "data_fapo_pos": 1,
+          "data_fapo_sp": 0,
+          "data_fapo_eroeff_dat": 10000,
+          "data_auftdicke": 0.65,
+          "data_auftbreite": 1675,
+          "data_auftlaenge": 0,
+          "data_wb_auslaufdicke": 3.25,
+          "data_wb_walzdicke": 3.29,
+          "data_wb_walztemp": "930",
+          "data_wb_walztemp_max": "60",
+          "data_wb_walztemp_min": "30",
+          "data_wb_haspeltemp": "750",
+          "data_wb_haspeltemp_max": "20",
+          "data_wb_haspeltemp_min": "20",
+          "data_kaltwalzdicke": 0.65,
+          "data_kaltwalzdicke_min": 0.02,
+          "data_kaltwalzdicke_max": 0.02
+        }
+      }
+  }
+]

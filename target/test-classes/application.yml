@@ -1,0 +1,19 @@
+spring:
+  data.mongodb:
+    database: products                 # Database name.
+    uri: mongodb://localhost:27017    # Mongo database URI. Cannot be set with host, port and credentials.
+  
+  kafka:
+    bootstrap-servers: localhost:9092
+    kafka.acks: all
+    retries: 0
+    consumer:
+      auto-offset-reset: earliest
+      group-id: product-group  
+#    producer.key-serializer: org.apache.kafka.common.serialization.StringSerializer
+    value.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+    schema-registry-url: http://192.168.1.109:8081
+
+kafka:
+  topic:
+    product: product

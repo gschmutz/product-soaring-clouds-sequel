@@ -1,0 +1,24 @@
+spring:
+  data.mongodb:
+    database: products                 # Database name.
+    uri: mongodb://localhost:27017    # Mongo database URI. Cannot be set with host, port and credentials.
+  
+  kafka:
+#    bootstrap-servers: localhost:9092
+    bootstrap-servers: 129.150.114.134:9092
+#    bootstrap-servers: 129.150.77.116:6667
+    kafka.acks: all
+    retries: 0
+    consumer:
+      auto-offset-reset: earliest
+      group-id: product-group  
+#    producer.key-serializer: org.apache.kafka.common.serialization.StringSerializer
+    value.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+    schema-registry-url: http://129.150.114.134:8081
+
+  jackson.serialization.indent_output: true
+  
+kafka:
+  topic:
+    product: a516817-soaring-products
+#    product: product

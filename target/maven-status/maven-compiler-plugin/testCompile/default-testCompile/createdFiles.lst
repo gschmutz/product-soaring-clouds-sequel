@@ -1,0 +1,3 @@
+com/soaringclouds/product/ProductRepositoryTest.class
+com/soaringclouds/product/ProductServiceTest.class
+com/soaringclouds/product/TestKafkaAvro.class

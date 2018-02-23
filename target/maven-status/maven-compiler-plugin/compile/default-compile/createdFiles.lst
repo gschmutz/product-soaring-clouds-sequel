@@ -1,0 +1,14 @@
+com/soaringclouds/product/KafkaConfig.class
+com/soaringclouds/product/api/ProductApi.class
+com/soaringclouds/product/api/DimensionApi.class
+com/soaringclouds/product/model/DimensionDO.class
+com/soaringclouds/product/converter/ProductConverter.class
+com/soaringclouds/product/event/ProductEventConsumer.class
+com/soaringclouds/product/api/ProductController.class
+com/soaringclouds/product/repository/ProductRepository.class
+com/soaringclouds/product/model/ProductDO.class
+com/soaringclouds/product/event/ProductEventProducer.class
+com/soaringclouds/product/Application.class
+com/soaringclouds/product/service/ProductService.class
+com/soaringclouds/product/service/ProductServiceImpl.class
+com/soaringclouds/product/api/ProductConverter.class
