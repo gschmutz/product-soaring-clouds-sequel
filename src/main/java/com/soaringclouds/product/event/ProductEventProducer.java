@@ -16,6 +16,6 @@ public class ProductEventProducer {
 	String kafkaTopic;
 	
 	public void produce(Product product) {
-		kafkaTemplate.send(kafkaTopic, product);
+		kafkaTemplate.send(kafkaTopic, product.getProductId().toString(), product);
 	}
 }
