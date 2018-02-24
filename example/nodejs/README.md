@@ -13,6 +13,13 @@ node consume-products.js
 ```
 It waits for messages to arrive on the topic `a516817-soaring-products` and prints the value of the Avro object serialized as JSON.
 
+You can produce an event by creating a new product throught the Product MS Rest API
+```bash
+curl -X POST http://129.150.114.134:8080/product -H "Content-Type: application/json" -d '{"code":"AX330T","name":"Light Brown Men Shoe 6","imageUrl":"01_men_one.jpg","price":68.39,"size":43,"weight":0,"dimension":{"unit":"cm","length":10.2,"height":10.4,"width":5.4},"color":"lightbrown","tags":null,"categories":["men"]}' 
+```
+
+and you should now see the following output:
+
 ```bash
 > node consume-products.js
 [2018-02-24T13:29:42.021Z]  INFO: KafkaAvro/46052 on guidos-mbp-5.home: init() :: Initializing KafkaAvro... (module=/kafka-avro.js)
@@ -49,8 +56,6 @@ Received message: Product {
      width: Branch$ { double: 5.4 } },
   color: null }
 ```
-You can produce an event by creating a new product throught the Product MS Rest API
-```bash
-curl -d '{"code":"AX330T","name":"Light Brown Men Shoe 6","imageUrl":"01_men_one.jpg","price":68.39,"size":43,"weight":0,"dimension":{"unit":"cm","length":10.2,"height":10.4,"width":5.4},"color":"lightbrown","tags":null,"categories":["men"]}' -H "Content-Type: application/json" -X POST http://localhost:3000/data
-```
+
+
 

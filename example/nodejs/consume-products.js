@@ -9,8 +9,6 @@ var kafkaAvro = new KafkaAvro({
     parseOptions: { wrapUnions: true }
 });
 
-console.log(KafkaAvro.CODES);
-
 kafkaAvro.init()
     .then(function() {
         console.log('Ready to use');
