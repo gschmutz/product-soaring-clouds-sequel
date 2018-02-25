@@ -20,5 +20,5 @@ public interface ProductService {
     public void modifyProduct(ProductDO product);
     public void removeProduct(ProductDO product);
     
-	public void addProductToShoppingCart(String sessionId, String userId, CurrencyDO currency, int quantity, ProductDO product);
+	public void addProductToShoppingCart(String sessionId, String customerId, CurrencyDO currency, int quantity, ProductDO product);
 }

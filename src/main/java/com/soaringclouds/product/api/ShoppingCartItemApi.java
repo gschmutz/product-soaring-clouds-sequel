@@ -1,18 +1,14 @@
 package com.soaringclouds.product.api;
 
-import java.math.BigInteger;
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.soaringclouds.product.model.DimensionDO;
 
 public class ShoppingCartItemApi {
 
     @JsonProperty(value = "sessionId", required = true)
     public String sessionId;
     
-    @JsonProperty(value = "userId", required = true)
-    public String userId;
+    @JsonProperty(value = "customerId", required = true)
+    public String customerId;
 
     @JsonProperty(value = "currency", required = true)
     public String currency;

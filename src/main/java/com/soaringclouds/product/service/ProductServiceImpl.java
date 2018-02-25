@@ -48,10 +48,9 @@ public class ProductServiceImpl implements ProductService {
 	}
 	
 	@Override
-	public void addProductToShoppingCart(String sessionId, String userId, CurrencyDO currency, int quantity, ProductDO product) {
+	public void addProductToShoppingCart(String sessionId, String customerId, CurrencyDO currency, int quantity, ProductDO product) {
 		double priceInCurrency = product.getPrice() * currency.getExchangeRate();
-System.out.println(product);
-		com.soaringclouds.avro.shoppingCartItem.v1.ShoppingCartItem avro = ProductConverter.convert(sessionId, userId, currency, priceInCurrency, quantity, product);
+		com.soaringclouds.avro.shoppingCartItem.v1.ShoppingCartItem avro = ProductConverter.convert(sessionId, customerId, currency, priceInCurrency, quantity, product);
 		toShoppingCartEventProducer.produce(avro);
 	}
 

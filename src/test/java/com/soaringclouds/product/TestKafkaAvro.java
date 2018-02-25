@@ -80,7 +80,7 @@ public class TestKafkaAvro {
 	public void testShoppingCartItem() {
 		ShoppingCartItem sci = new ShoppingCartItem();
 		sci.setSessionId("sdfafsdffsdf");
-		sci.setUserId("gschmutz");
+		sci.setCustomerId("gschmutz");
 		sci.setCurrency(CurrencyEnum.EUR);
 		sci.setPriceInCurrency(1.0);
 		sci.setQuantity(1);

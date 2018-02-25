@@ -52,7 +52,7 @@ public class ProductController {
     private void createToShoppingCart(ShoppingCartItemApi toShoppingCartApi) throws ParseException {
         ProductDO productDO = ProductConverter.convert(toShoppingCartApi.product);
         CurrencyDO currencyDO = currencyService.getCurrency(toShoppingCartApi.currency, toShoppingCartApi.sessionId);
-        productService.addProductToShoppingCart(toShoppingCartApi.sessionId, toShoppingCartApi.userId, currencyDO, toShoppingCartApi.quantity, productDO);
+        productService.addProductToShoppingCart(toShoppingCartApi.sessionId, toShoppingCartApi.customerId, currencyDO, toShoppingCartApi.quantity, productDO);
         LOGGER.info("Prodcut created: " + productDO);
     }
 

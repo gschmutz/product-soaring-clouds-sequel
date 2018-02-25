@@ -77,11 +77,11 @@ public class ProductConverter {
 	 * @param quantity
 	 * @return
 	 */
-	public static ShoppingCartItem convert (String sessionId, String userId, CurrencyDO currency, Double priceInCurrency, int quantity, ProductDO product) {
+	public static ShoppingCartItem convert (String sessionId, String customerId, CurrencyDO currency, Double priceInCurrency, int quantity, ProductDO product) {
 		ShoppingCartItem toShoppingCart = new ShoppingCartItem();
 		
 		toShoppingCart.setSessionId(sessionId);
-		toShoppingCart.setUserId(userId);
+		toShoppingCart.setCustomerId(customerId);
 		toShoppingCart.setCurrency(CurrencyEnum.valueOf(currency.getCurrency().name()));
 		toShoppingCart.setPriceInCurrency(priceInCurrency);
 		toShoppingCart.setQuantity(quantity);
