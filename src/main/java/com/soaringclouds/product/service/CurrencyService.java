@@ -14,11 +14,7 @@ import com.soaringclouds.product.model.ProductDO;
  * 
  */
 @Service
-public interface ProductService {
+public interface CurrencyService {
     
-    public void createProduct(ProductDO product);
-    public void modifyProduct(ProductDO product);
-    public void removeProduct(ProductDO product);
-    
-	public void addProductToShoppingCart(String sessionId, String userId, CurrencyDO currency, int quantity, ProductDO product);
+    public CurrencyDO getCurrency(String currency, String sessionId);
 }

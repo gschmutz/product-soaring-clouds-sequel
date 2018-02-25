@@ -20,5 +20,6 @@ spring:
   
 kafka:
   topic:
+    addToShoppingCart: a516817-soaring-add-to-shopping-cart
     product: a516817-soaring-products
 #    product: product

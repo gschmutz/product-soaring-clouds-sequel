@@ -10,8 +10,8 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.junit.Test;
 
-import com.soaringclouds.avro.v1.Dimension;
-import com.soaringclouds.avro.v1.Product;
+import com.soaringclouds.avro.product.v1.Dimension;
+import com.soaringclouds.avro.product.v1.Product;
 
 public class TestKafkaAvro {
 

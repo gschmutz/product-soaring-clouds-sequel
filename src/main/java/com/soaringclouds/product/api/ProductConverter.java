@@ -1,12 +1,5 @@
 package com.soaringclouds.product.api;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-
-import com.soaringclouds.avro.v1.Dimension;
-import com.soaringclouds.avro.v1.Product;
-import com.soaringclouds.product.api.ProductApi;
 import com.soaringclouds.product.model.DimensionDO;
 import com.soaringclouds.product.model.ProductDO;
 
@@ -54,6 +47,5 @@ public class ProductConverter {
 
 		return value;
 	}
-	
 	
 }

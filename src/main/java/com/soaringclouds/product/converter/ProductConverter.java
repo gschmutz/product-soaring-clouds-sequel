@@ -2,11 +2,12 @@ package com.soaringclouds.product.converter;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
-import com.soaringclouds.avro.v1.Dimension;
-import com.soaringclouds.avro.v1.Product;
-import com.soaringclouds.product.api.ProductApi;
+import com.soaringclouds.avro.product.v1.Dimension;
+import com.soaringclouds.avro.product.v1.Product;
+import com.soaringclouds.avro.shoppingCartItem.v1.CurrencyEnum;
+import com.soaringclouds.avro.shoppingCartItem.v1.ShoppingCartItem;
+import com.soaringclouds.product.model.CurrencyDO;
 import com.soaringclouds.product.model.DimensionDO;
 import com.soaringclouds.product.model.ProductDO;
 
@@ -64,5 +65,35 @@ public class ProductConverter {
 		return value;
 	}
 	
+	/**
+	 * Converts domain objects to the Avro ShoppingCartItem object
+	 * @param product
+	 * @param currency
+	 * @param priceInCurrency
+	 * @param quantity
+	 * @return
+	 */
+	public static ShoppingCartItem convert (String sessionId, String userId, CurrencyDO currency, Double priceInCurrency, int quantity, ProductDO product) {
+		ShoppingCartItem toShoppingCart = new ShoppingCartItem();
+		
+		toShoppingCart.setSessionId(sessionId);
+		toShoppingCart.setUserId(userId);
+		toShoppingCart.setCurrency(CurrencyEnum.valueOf(currency.getCurrency().name()));
+		toShoppingCart.setPriceInCurrency(priceInCurrency);
+		toShoppingCart.setQuantity(quantity);
+
+		// set the product data
+		toShoppingCart.getProduct().setProductId(product.getId());
+		toShoppingCart.getProduct().setProductCode(product.getProductCode());
+		toShoppingCart.getProduct().setProductName(product.getProductName());
+		toShoppingCart.getProduct().setImageUrl(product.getImageUrl());
+		toShoppingCart.getProduct().setPrice(product.getPrice());
+		toShoppingCart.getProduct().setSize(product.getSize());
+		toShoppingCart.getProduct().setWeight(product.getWeight());
+		toShoppingCart.getProduct().setDimension(new com.soaringclouds.avro.shoppingCartItem.v1.Dimension(product.getDimension().getUnit(),
+											product.getDimension().getLength(), product.getDimension().getHeight(), product.getDimension().getWidth()));
+				
+		return toShoppingCart;
+	}
 	
 }

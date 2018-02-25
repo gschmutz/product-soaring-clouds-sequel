@@ -3,7 +3,6 @@ package com.soaringclouds.product.api;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 import javax.validation.Valid;
 
@@ -18,8 +17,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.common.base.Preconditions;
+import com.soaringclouds.product.model.CurrencyDO;
 import com.soaringclouds.product.model.ProductDO;
 import com.soaringclouds.product.repository.ProductRepository;
+import com.soaringclouds.product.service.CurrencyService;
 import com.soaringclouds.product.service.ProductService;
 
 @RestController
@@ -31,14 +32,30 @@ public class ProductController {
     private ProductRepository productRepository;
 
     @Autowired
+    private CurrencyService currencyService;
+
+    @Autowired
     private ProductService productService;
 
-    private void saveProduct(ProductApi productApi) throws ParseException {
+    private void createProduct(ProductApi productApi) throws ParseException {
         ProductDO productDO = ProductConverter.convert(productApi);
         productService.createProduct(productDO);
         LOGGER.info("Prodcut created: " + productDO);
     }
     
+    private void modifyProduct(ProductApi productApi) throws ParseException {
+        ProductDO productDO = ProductConverter.convert(productApi);
+        productService.modifyProduct(productDO);
+        LOGGER.info("Prodcut created: " + productDO);
+    }
+
+    private void createToShoppingCart(ShoppingCartItemApi toShoppingCartApi) throws ParseException {
+        ProductDO productDO = ProductConverter.convert(toShoppingCartApi.product);
+        CurrencyDO currencyDO = currencyService.getCurrency(toShoppingCartApi.currency, toShoppingCartApi.sessionId);
+        productService.addProductToShoppingCart(toShoppingCartApi.sessionId, toShoppingCartApi.userId, currencyDO, toShoppingCartApi.quantity, productDO);
+        LOGGER.info("Prodcut created: " + productDO);
+    }
+
     @RequestMapping(value= "/product",
             method = RequestMethod.POST,
             consumes = "application/json") 
@@ -46,9 +63,36 @@ public class ProductController {
     public void postProduct(@RequestBody @Valid ProductApi productApi) throws ParseException {
         Preconditions.checkNotNull(productApi);
         
-        saveProduct(productApi);
+        createProduct(productApi);
     }
-
+    
+    @RequestMapping(value= "/product",
+            method = RequestMethod.PUT,
+            consumes = "application/json") 
+    @Transactional
+    public void putProduct(@RequestBody @Valid ProductApi productApi) throws ParseException {
+        Preconditions.checkNotNull(productApi);
+        Preconditions.checkNotNull(productApi.getProductId());
+        
+        modifyProduct(productApi);
+    }
+    
+    @RequestMapping(
+            method = RequestMethod.GET, 
+            value = "/product"
+    )
+    public ProductApi getProduct(@RequestParam(value="code", defaultValue="") String code)  {
+        ProductApi product = new ProductApi();
+        ProductDO productDO = null;
+        
+        if (code != null && code.length() > 0) {
+        		productDO = productRepository.findByProductCode(code);
+        } 
+        System.out.println(productDO);
+        product = ProductConverter.convert(productDO);
+        return product;
+    }    
+    
     @RequestMapping(
             method = RequestMethod.POST,
             consumes = "application/json",
@@ -58,7 +102,7 @@ public class ProductController {
     public void postProducts(@RequestBody @Valid ProductApi[] productApis) throws ParseException {
         Preconditions.checkNotNull(productApis);
         for (ProductApi productApi : productApis) {
-            saveProduct(productApi);
+            createProduct(productApi);
         }
     }
 
@@ -87,20 +131,14 @@ public class ProductController {
         return products;
     }
 
-    @RequestMapping(
-            method = RequestMethod.GET, 
-            value = "/product"
-    )
-    public ProductApi getProduct(@RequestParam(value="code", defaultValue="") String code)  {
-        ProductApi product = new ProductApi();
-        ProductDO productDO = null;
+    @RequestMapping(value= "/toShoppingCart",
+            method = RequestMethod.POST,
+            consumes = "application/json") 
+    @Transactional
+    public void postToShoppingCart(@RequestBody @Valid ShoppingCartItemApi toShoppingCartApi) throws ParseException {
+        Preconditions.checkNotNull(toShoppingCartApi);
         
-        if (code != null && code.length() > 0) {
-        		productDO = productRepository.findByProductCode(code);
-        } 
-        System.out.println(productDO);
-        product = ProductConverter.convert(productDO);
-        return product;
+        createToShoppingCart(toShoppingCartApi);
     }
 
 }

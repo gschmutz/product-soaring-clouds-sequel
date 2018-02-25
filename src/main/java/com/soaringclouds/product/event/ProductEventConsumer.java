@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
-import com.soaringclouds.avro.v1.Product;
+import com.soaringclouds.avro.product.v1.Product;
 
 @Component
 public class ProductEventConsumer {
