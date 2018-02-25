@@ -14,4 +14,4 @@ mv apache-maven-$MAVEN_VERSION /usr/lib/mvn
 
 ADD ./deploy/product-soaring-clouds-sequel-1.0-SNAPSHOT.jar /product.jar
 RUN sh -c 'touch /product.jar'
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-Dspring.profiles.active=dev","-jar","/product.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-Dspring.profiles.active=prod","-jar","/product.jar"]
