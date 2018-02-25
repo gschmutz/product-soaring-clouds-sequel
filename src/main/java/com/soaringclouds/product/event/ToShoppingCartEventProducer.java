@@ -16,6 +16,7 @@ public class ToShoppingCartEventProducer {
 	String kafkaTopic;
 	
 	public void produce(ShoppingCartItem shoppingCartItem) {
+		System.out.println(shoppingCartItem);
 		kafkaTemplate.send(kafkaTopic, shoppingCartItem.getSessionId().toString(), shoppingCartItem);
 	}
 }

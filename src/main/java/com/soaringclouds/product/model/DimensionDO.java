@@ -28,6 +28,11 @@ public class DimensionDO {
 	public double getWidth() {
 		return width;
 	}
+
+	@Override
+	public String toString() {
+		return "DimensionDO [unit=" + unit + ", length=" + length + ", height=" + height + ", width=" + width + "]";
+	}
     
     
 }

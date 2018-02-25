@@ -23,4 +23,10 @@ public class CurrencyDO {
 		return exchangeRate;
 	}
 
+	@Override
+	public String toString() {
+		return "CurrencyDO [currency=" + currency + ", currencyName=" + currencyName + ", exchangeRate=" + exchangeRate
+				+ "]";
+	}
+
 }

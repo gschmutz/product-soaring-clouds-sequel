@@ -45,8 +45,11 @@ public class ProductConverter {
 		value.setSize(product.getSize());
 		value.setWeight(product.getWeight());
 		value.setCategories(convertFromString(product.getCategories()));
+		value.setTags(convertFromString(product.getTags()));
 		value.setDimension(new Dimension(product.getDimension().getUnit(),
 				product.getDimension().getLength(), product.getDimension().getHeight(), product.getDimension().getWidth()));
+		value.setColor(product.getColor());
+		
 		return value;
 	}
 	
@@ -60,6 +63,7 @@ public class ProductConverter {
 		value.setSize(product.getSize());
 		value.setWeight(product.getWeight());
 		value.setCategories(convertFromCS(product.getCategories()));
+		value.setTags(convertFromCS(product.getTags()));
 		value.setDimension(new DimensionDO(product.getDimension().getUnit().toString(),
 				product.getDimension().getLength(), product.getDimension().getHeight(), product.getDimension().getWidth()));
 		return value;
@@ -82,7 +86,8 @@ public class ProductConverter {
 		toShoppingCart.setPriceInCurrency(priceInCurrency);
 		toShoppingCart.setQuantity(quantity);
 
-		// set the product data
+		// set the product datas
+		toShoppingCart.setProduct(new com.soaringclouds.avro.shoppingCartItem.v1.Product());
 		toShoppingCart.getProduct().setProductId(product.getId());
 		toShoppingCart.getProduct().setProductCode(product.getProductCode());
 		toShoppingCart.getProduct().setProductName(product.getProductName());
@@ -92,7 +97,9 @@ public class ProductConverter {
 		toShoppingCart.getProduct().setWeight(product.getWeight());
 		toShoppingCart.getProduct().setDimension(new com.soaringclouds.avro.shoppingCartItem.v1.Dimension(product.getDimension().getUnit(),
 											product.getDimension().getLength(), product.getDimension().getHeight(), product.getDimension().getWidth()));
-				
+		toShoppingCart.getProduct().setCategories(convertFromString(product.getCategories()));
+		toShoppingCart.getProduct().setTags(convertFromString(product.getTags()));
+		toShoppingCart.getProduct().setColor(product.getColor());
 		return toShoppingCart;
 	}
 	

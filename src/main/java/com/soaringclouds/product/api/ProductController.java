@@ -131,12 +131,13 @@ public class ProductController {
         return products;
     }
 
-    @RequestMapping(value= "/toShoppingCart",
+    @RequestMapping(value= "/shoppingCart",
             method = RequestMethod.POST,
             consumes = "application/json") 
     @Transactional
-    public void postToShoppingCart(@RequestBody @Valid ShoppingCartItemApi toShoppingCartApi) throws ParseException {
+    public void postShoppingCart(@RequestBody @Valid ShoppingCartItemApi toShoppingCartApi) throws ParseException {
         Preconditions.checkNotNull(toShoppingCartApi);
+        Preconditions.checkNotNull(toShoppingCartApi.product, "the product object should not be NULL");
         
         createToShoppingCart(toShoppingCartApi);
     }

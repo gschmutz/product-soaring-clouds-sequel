@@ -20,6 +20,7 @@ import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.listener.ConcurrentMessageListenerContainer;
 
 import com.soaringclouds.avro.product.v1.Product;
+import com.soaringclouds.avro.shoppingCartItem.v1.ShoppingCartItem;
 
 import io.confluent.kafka.serializers.AbstractKafkaAvroSerDeConfig;
 import io.confluent.kafka.serializers.KafkaAvroDeserializer;
@@ -66,13 +67,23 @@ public class KafkaConfig {
 	  }
 
 	  @Bean
-	  public ConsumerFactory<String, Product> consumerFactory() {
-	    return new DefaultKafkaConsumerFactory<>(consumerConfigs());
+	  public ProducerFactory<String, ShoppingCartItem> producerFactoryShoppingCartItem() {
+	    return new DefaultKafkaProducerFactory<>(producerConfigs());
 	  }
 
 	  @Bean
 	  public KafkaTemplate<String, Product> kafkaTemplate() {
 	    return new KafkaTemplate<>(producerFactory());
+	  }
+
+	  @Bean
+	  public KafkaTemplate<String, ShoppingCartItem> kafkaTemplateShoppingCartItem() {
+	    return new KafkaTemplate<>(producerFactoryShoppingCartItem());
+	  }
+	  
+	  @Bean
+	  public ConsumerFactory<String, Product> consumerFactory() {
+	    return new DefaultKafkaConsumerFactory<>(consumerConfigs());
 	  }
 	  
 	  @Bean

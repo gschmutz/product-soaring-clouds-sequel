@@ -110,5 +110,12 @@ public class ProductDO {
 		this.tags = tags;
 	}
 
+	@Override
+	public String toString() {
+		return "ProductDO [id=" + id + ", productCode=" + productCode + ", productName=" + productName + ", imageUrl="
+				+ imageUrl + ", price=" + price + ", size=" + size + ", weight=" + weight + ", dimension=" + dimension
+				+ ", color=" + color + ", tags=" + tags + ", categories=" + categories + "]";
+	}
+
 
 }
