@@ -68,7 +68,7 @@ It waits for messages to arrive on the topic `a516817-soaring-products` and prin
 
 You can produce an event by creating a new product throught the Product MS Rest API
 ```bash
-curl -X POST http://129.150.114.134:8080/shoppingCart -H "Content-Type: application/json" -d '{"code":"AX330T","name":"Light Brown Men Shoe 6","imageUrl":"01_men_one.jpg","price":68.39,"size":43,"weight":0,"dimension":{"unit":"cm","length":10.2,"height":10.4,"width":5.4},"color":"lightbrown","tags":[],"categories":["men"]}' 
+curl -X POST http://129.150.114.134:8080/shoppingCart -H "Content-Type: application/json" -d '{"sessionId":"abbfc4f9-83d5-49ac-9fa5-2909c5dc86e6","customerId":"232422","currency":"USD","quantity":1,"product":{"productId":"abbfc4f9-83d5-49ac-9fa5-2909c5dc86e6","code":"AX329T","name":"Light Brown Men Shoe 1","imageUrl":"01_men_one.jpg","price":68.39,"size":43,"weight":0.0,"dimension":{"unit":"cm","length":10.2,"height":10.4,"width":5.4},"color":"lightbrown","tags":["tag"],"categories":["men"]}}' 
 ```
 
 and you should now see the following output:
