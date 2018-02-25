@@ -1,4 +1,4 @@
-# This is a Node.js sample for consuming Product events from the Kafka topic
+# Node.js sample for consuming events from the Kafka topic
 
 Before you can use the code, the [Kafka-Avro](https://github.com/waldophotos/kafka-avro/blob/edeaf037d0248671d484c97840b8a8963153daf4/README.md) library has to be installed:
 
@@ -6,6 +6,8 @@ Before you can use the code, the [Kafka-Avro](https://github.com/waldophotos/kaf
 npm install kafka-avro --save
 ```
 If you want to enable logging of the Kafka-Avro library, then set the environment variable `KAFKA_AVRO_LOG_LEVEL` to either `info` or `debug`. 
+
+## Consuming from "product" topic
 
 Now you can start the Node.js script
 ```bash
@@ -15,7 +17,7 @@ It waits for messages to arrive on the topic `a516817-soaring-products` and prin
 
 You can produce an event by creating a new product throught the Product MS Rest API
 ```bash
-curl -X POST http://129.150.114.134:8080/product -H "Content-Type: application/json" -d '{"code":"AX330T","name":"Light Brown Men Shoe 6","imageUrl":"01_men_one.jpg","price":68.39,"size":43,"weight":0,"dimension":{"unit":"cm","length":10.2,"height":10.4,"width":5.4},"color":"lightbrown","tags":null,"categories":["men"]}' 
+curl -X POST http://129.150.114.134:8080/product -H "Content-Type: application/json" -d '{"code":"AX330T","name":"Light Brown Men Shoe 6","imageUrl":"01_men_one.jpg","price":68.39,"size":43,"weight":0,"dimension":{"unit":"cm","length":10.2,"height":10.4,"width":5.4},"color":"lightbrown","tags":[],"categories":["men"]}' 
 ```
 
 and you should now see the following output:
@@ -57,5 +59,18 @@ Received message: Product {
   color: null }
 ```
 
+## Consuming from "add-to-shopping-cart" topic
+Now you can start the Node.js script
+```bash
+node consume-add-to-shopping-cart.js
+```
+It waits for messages to arrive on the topic `a516817-soaring-products` and prints the value of the Avro object serialized as JSON.
+
+You can produce an event by creating a new product throught the Product MS Rest API
+```bash
+curl -X POST http://129.150.114.134:8080/shoppingCart -H "Content-Type: application/json" -d '{"code":"AX330T","name":"Light Brown Men Shoe 6","imageUrl":"01_men_one.jpg","price":68.39,"size":43,"weight":0,"dimension":{"unit":"cm","length":10.2,"height":10.4,"width":5.4},"color":"lightbrown","tags":[],"categories":["men"]}' 
+```
+
+and you should now see the following output:
 
 
