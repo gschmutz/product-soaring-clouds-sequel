@@ -23,7 +23,6 @@ curl -X POST http://129.150.114.134:8080/product -H "Content-Type: application/j
 and you should now see the following output:
 
 ```bash
-> node consume-products.js
 [2018-02-24T13:29:42.021Z]  INFO: KafkaAvro/46052 on guidos-mbp-5.home: init() :: Initializing KafkaAvro... (module=/kafka-avro.js)
 [2018-02-24T13:29:42.023Z]  INFO: KafkaAvro/46052 on guidos-mbp-5.home: init() :: Initializing SR, will fetch all schemas from SR... (module=/schema-registry.js)
 [2018-02-24T13:29:42.028Z] DEBUG: KafkaAvro/46052 on guidos-mbp-5.home: _fetchAllSchemaTopics() :: Fetching all schemas using url: http://129.150.114.134:8081/subjects (module=/schema-registry.js)
@@ -73,4 +72,31 @@ curl -X POST http://129.150.114.134:8080/shoppingCart -H "Content-Type: applicat
 
 and you should now see the following output:
 
+```bash
+Ready to use
+Received message: ShoppingCartItem {
+  sessionId: 'abbfc4f9-83d5-49ac-9fa5-2909c5dc86e6',
+  customerId: '232422',
+  quantity: 1,
+  priceInCurrency: 68.39,
+  currency: 'USD',
+  product:
+   Product {
+     productId: 'abbfc4f9-83d5-49ac-9fa5-2909c5dc86e6',
+     productCode: Branch$ { string: 'AX329T' },
+     productName: Branch$ { string: 'Light Brown Men Shoe 1' },
+     imageUrl: Branch$ { string: '01_men_one.jpg' },
+     price: Branch$ { double: 68.39 },
+     size: Branch$ { int: 43 },
+     weight: Branch$ { double: 0 },
+     categories: [ 'men' ],
+     tags: [ 'tag' ],
+     dimension:
+      Dimension {
+        unit: [Object],
+        length: [Object],
+        height: [Object],
+        width: [Object] },
+     color: Branch$ { string: 'lightbrown' } } }
+```
 
