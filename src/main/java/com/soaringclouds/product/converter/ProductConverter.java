@@ -44,8 +44,12 @@ public class ProductConverter {
 		value.setPrice(product.getPrice());
 		value.setSize(product.getSize());
 		value.setWeight(product.getWeight());
-		value.setCategories(convertFromString(product.getCategories()));
-		value.setTags(convertFromString(product.getTags()));
+		if (product.getCategories() != null) {
+			value.setCategories(convertFromString(product.getCategories()));
+		}
+		if (product.getTags() != null) {
+			value.setTags(convertFromString(product.getTags()));
+		}
 		value.setDimension(new Dimension(product.getDimension().getUnit(),
 				product.getDimension().getLength(), product.getDimension().getHeight(), product.getDimension().getWidth()));
 		value.setColor(product.getColor());
@@ -62,8 +66,12 @@ public class ProductConverter {
 		value.setPrice(product.getPrice());
 		value.setSize(product.getSize());
 		value.setWeight(product.getWeight());
-		value.setCategories(convertFromCS(product.getCategories()));
-		value.setTags(convertFromCS(product.getTags()));
+		if (product.getCategories() != null) {
+			value.setCategories(convertFromCS(product.getCategories()));
+		}
+		if (product.getTags() != null) {
+			value.setTags(convertFromCS(product.getTags()));
+		}
 		value.setDimension(new DimensionDO(product.getDimension().getUnit().toString(),
 				product.getDimension().getLength(), product.getDimension().getHeight(), product.getDimension().getWidth()));
 		return value;
