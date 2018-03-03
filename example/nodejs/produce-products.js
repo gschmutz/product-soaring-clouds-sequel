@@ -1,11 +1,11 @@
 var KafkaAvro = require('kafka-avro');
-var avro = require('avsc');
 var fmt = require('bunyan-format');
 var kafkaLog  = KafkaAvro.getLogger();
 
 var kafkaAvro = new KafkaAvro({
     kafkaBroker: '129.150.77.116:6667',
     schemaRegistry: 'http://129.150.114.134:8081',
+    fetchAllVersion: true,
     parseOptions: { wrapUnions: true }
 });
 
@@ -58,7 +58,9 @@ kafkaAvro.init()
 				    	    },
 				    	    	"color":{"string":"blue"}
 				    	  };
-      	        
+
+      	        console.log(topicName)
+      	        console.log(topic)
       	        //console.log(bufVal);
       	        //var buf = kafkaAvro.serialize(kafkaAvro.sr.valueSchemas[topicName], kafkaAvro.sr.schemaMeta[topicName].id, bufVal);
       	        
@@ -71,6 +73,17 @@ kafkaAvro.init()
       	        var key = val.productId;
       	        var partition = -1;
       	        producer.produce(topic, partition, val, key);
+      	        
+      	    //need to keep polling for a while to ensure the delivery reports are received
+      	        /*
+      	      var pollLoop = setInterval(() => {
+      	        producer.poll();
+      	        if (this.gotReceipt) {
+      	          clearInterval(pollLoop);
+      	          done();
+      	        }
+      	      }, 1000);
+      	      */
       	    });     
         
     });
