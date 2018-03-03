@@ -17,7 +17,7 @@ It waits for messages to arrive on the topic `a516817-soaring-products` and prin
 
 You can produce an event by creating a new product throught the Product MS Rest API
 ```bash
-curl -X POST http://129.150.114.134:8080/product -H "Content-Type: application/json" -d '{"code":"AX330T","name":"Light Brown Men Shoe 6","imageUrl":"01_men_one.jpg","price":68.39,"size":43,"weight":0,"dimension":{"unit":"cm","length":10.2,"height":10.4,"width":5.4},"color":"lightbrown","tags":[],"categories":["men"]}' 
+curl -X POST http://129.150.114.134:8080/product -H "Content-Type: application/json" -d '{"code":"AX330T","name":"Light Brown Men Shoe 6","description":"Some very nice light brown shoes","imageUrl":"01_men_one.jpg","price":68.39,"size":43,"weight":0,"dimension":{"unit":"cm","length":10.2,"height":10.4,"width":5.4},"color":"lightbrown","tags":[],"categories":["men"]}' 
 ```
 
 and you should now see the following output:
@@ -43,6 +43,7 @@ Received message: Product {
   productId: '5a9168d75f15030001b1788b',
   productCode: Branch$ { string: 'AX330T' },
   productName: Branch$ { string: 'Light Brown Men Shoe 6' },
+  description: Branch$ { string: 'Some very nice light brown shoes' },
   imageUrl: Branch$ { string: '01_men_one.jpg' },
   price: Branch$ { double: 68.39 },
   size: Branch$ { int: 43 },
@@ -67,7 +68,7 @@ It waits for messages to arrive on the topic `a516817-soaring-products` and prin
 
 You can produce an event by creating a new product throught the Product MS Rest API
 ```bash
-curl -X POST http://129.150.114.134:8080/shoppingCart -H "Content-Type: application/json" -d '{"sessionId":"abbfc4f9-83d5-49ac-9fa5-2909c5dc86e6","customerId":"232422","currency":"USD","quantity":1,"product":{"productId":"abbfc4f9-83d5-49ac-9fa5-2909c5dc86e6","code":"AX329T","name":"Light Brown Men Shoe 1","imageUrl":"01_men_one.jpg","price":68.39,"size":43,"weight":0.0,"dimension":{"unit":"cm","length":10.2,"height":10.4,"width":5.4},"color":"lightbrown","tags":["tag"],"categories":["men"]}}' 
+curl -X POST http://129.150.114.134:8080/shoppingCart -H "Content-Type: application/json" -d '{"sessionId":"abbfc4f9-83d5-49ac-9fa5-2909c5dc86e6","customerId":"232422","currency":"USD","quantity":1,"product":{"productId":"abbfc4f9-83d5-49ac-9fa5-2909c5dc86e6","code":"AX329T","name":"Light Brown Men Shoe 1","description":"Some very nice light brown shoes", "imageUrl":"01_men_one.jpg","price":68.39,"size":43,"weight":0.0,"dimension":{"unit":"cm","length":10.2,"height":10.4,"width":5.4},"color":"lightbrown","tags":["tag"],"categories":["men"]}}' 
 ```
 
 and you should now see the following output:
