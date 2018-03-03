@@ -62,6 +62,8 @@ public class ProductConverter {
 		value.setId(product.getProductId().toString());
 		value.setProductCode(product.getProductCode().toString());
 		value.setProductName(product.getProductName().toString());
+		value.setDescription(product.getDescription().toString());
+
 		value.setImageUrl(product.getImageUrl().toString());
 		value.setPrice(product.getPrice());
 		value.setSize(product.getSize());
@@ -99,6 +101,7 @@ public class ProductConverter {
 		toShoppingCart.getProduct().setProductId(product.getId());
 		toShoppingCart.getProduct().setProductCode(product.getProductCode());
 		toShoppingCart.getProduct().setProductName(product.getProductName());
+		toShoppingCart.getProduct().setDescription(product.getDescription());
 		toShoppingCart.getProduct().setImageUrl(product.getImageUrl());
 		toShoppingCart.getProduct().setPrice(product.getPrice());
 		toShoppingCart.getProduct().setSize(product.getSize());

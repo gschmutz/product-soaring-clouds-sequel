@@ -11,6 +11,7 @@ public class ProductDO {
     @Id private String id;
     private String productCode;
     private String productName;
+    private String description;
     private String imageUrl;
     private double price;
     private int size;
@@ -110,12 +111,20 @@ public class ProductDO {
 		this.tags = tags;
 	}
 
-	@Override
-	public String toString() {
-		return "ProductDO [id=" + id + ", productCode=" + productCode + ", productName=" + productName + ", imageUrl="
-				+ imageUrl + ", price=" + price + ", size=" + size + ", weight=" + weight + ", dimension=" + dimension
-				+ ", color=" + color + ", tags=" + tags + ", categories=" + categories + "]";
+	public String getDescription() {
+		return description;
 	}
 
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	@Override
+	public String toString() {
+		return "ProductDO [id=" + id + ", productCode=" + productCode + ", productName=" + productName
+				+ ", description=" + description + ", imageUrl=" + imageUrl + ", price=" + price + ", size=" + size
+				+ ", weight=" + weight + ", dimension=" + dimension + ", color=" + color + ", tags=" + tags
+				+ ", categories=" + categories + "]";
+	}
 
 }

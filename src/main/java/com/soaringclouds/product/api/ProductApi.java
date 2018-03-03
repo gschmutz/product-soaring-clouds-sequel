@@ -1,10 +1,8 @@
 package com.soaringclouds.product.api;
 
-import java.math.BigInteger;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.soaringclouds.product.model.DimensionDO;
 
 public class ProductApi {
 
@@ -15,8 +13,11 @@ public class ProductApi {
     public String productCode;
     
     @JsonProperty(value = "name", required = true)
-    public String productName;
+    public String productName; 
     
+    @JsonProperty(value = "description", required = true)
+    public String description;
+
     @JsonProperty(value = "imageUrl", required = false)
     private String imageUrl;
     
@@ -127,6 +128,14 @@ public class ProductApi {
 
 	public void setTags(List<String> tags) {
 		this.tags = tags;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
     
     
