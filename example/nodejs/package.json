@@ -2,9 +2,9 @@
   "name": "nodejs",
   "version": "1.0.0",
   "description": "",
-  "main": "consume-products.js",
+  "main": "produce-products.js",
   "scripts": {
-    "start": "node consume-products.js"
+    "start": "node produce-products.js"
   },
   "keywords": [],
   "author": "",

@@ -15,12 +15,12 @@ kafkaAvro.init()
                 
         kafkaAvro.getProducer({
       	  // Options listed bellow
-//        	debug: "all",
-//        	log_level:7
+// debug: "all",
+// log_level:7
       	})
       	    // "getProducer()" returns a Bluebird Promise.
       	    .then(function(producer) {
-      	        var topicName = 'a516817-soaring-products';
+      	        var topicName = 'a516817-soaring-customers';
 
       	        producer.on('disconnected', function(arg) {
       	          console.log('producer disconnected. ' + JSON.stringify(arg));
@@ -31,46 +31,32 @@ kafkaAvro.init()
       	        		console.error(err);
       	        });
 
-      	        //Create a Topic object with any options our Producer
-      	        //should use when producing to that topic.
+      	        // Create a Topic object with any options our Producer
+      	        // should use when producing to that topic.
       	        var topic = producer.Topic(topicName, {
       	        // Make the Kafka broker acknowledge our message (optional)
       	        		'request.required.acks': 1
       	        });
 
       	        console.log(kafkaAvro.sr);
-      	        var val =  {
-				    	    "productId": '3e0c63c4-956a-4378-8a6d-2de636d191de',
-				    	    "productCode": {"string":"abc"},
-				    	    "productName": {"string":'productName'},
-				    	    "description": {"string":"this is the description"},
-				    	    "imageUrl": {"string":"imageUrl"},
-				    	    "price": {"double":12.22},
-				    	    "size": {"int":44},
-				    	    "weight": {"double":2.2},
-				    	    "categories": ["sport","men"],
-				    	    "tags": ["tag1","tag2"],
-				    	    "dimension": {
-				    	    		"unit": {"string" :"cm"},
-				    	    		"length": {"double" :12.2},
-				    	    		"height": {"double":2.3},
-				    	    		"width": {"double":3.4}
-				    	    },
-				    	    	"color":{"string":"blue"}
-				    	  };
+      	        var val =  {"firstName":"Bert","lastName":"Ernie","title":"Mr","email":"bert.ernie@gmail.com","dateOfBirth":{"string":"Mon May 12 1980 00:00:00 GMT+0000 (UTC)"},"_id":{"string":"5a9bf0b6d66988112e2231f9"},"phoneNumbers":{"array":[{"type":"HOME","countryCode":"31","number":"1284567890"}]},"addresses":{"array":[{"type":"BILLING","streetName":"2nd Street","streetNumber":"21","city":"New York","postcode":"50858","country":"US"}]},"paymentDetails":{"array":[{"type":"CREDIT","cardNumber":"1234341413231","expirationDate":{"string":"09/22"},"preferred":{"boolean":true},"nameOnCard":"'Doe'"}]},"preferences":{"newsLetter":{"boolean":false},"offers":{"boolean":false}}}
 
       	        console.log(topicName)
       	        console.log(topic)
-      	        //console.log(bufVal);
-      	        //var buf = kafkaAvro.serialize(kafkaAvro.sr.valueSchemas[topicName], kafkaAvro.sr.schemaMeta[topicName].id, bufVal);
+      	        // console.log(bufVal);
+      	        // var buf =
+				// kafkaAvro.serialize(kafkaAvro.sr.valueSchemas[topicName],
+				// kafkaAvro.sr.schemaMeta[topicName].id, bufVal);
       	        
-      	        //var type =  avro.parse(kafkaAvro.sr.valueSchemas[topicName], {wrapUnions: true});
+      	        // var type = avro.parse(kafkaAvro.sr.valueSchemas[topicName],
+				// {wrapUnions: true});
 
       	        // clone would do the cohercing of the message
-      	        //var output = type.clone(bufVal, {wrapUnions: true});
+      	        // var output = type.clone(bufVal, {wrapUnions: true});
       	        
-      	        // if partition is set to -1, librdkafka will use the default partitioner
-      	        var key = val.productId;
+      	        // if partition is set to -1, librdkafka will use the default
+				// partitioner
+      	        var key = "5a9bf0b6d66988112e2231f9";
       	        var partition = -1;
       	        producer.produce(topic, partition, val, key);
       	        
