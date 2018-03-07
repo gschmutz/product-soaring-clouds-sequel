@@ -1,0 +1,19 @@
+{
+    "productId": "8f498b22-21e6-11e8-b467-0ed5f89f718b",
+    "code" : "BAKE-Pie-301",
+    "name" : "Dutch Apple Pie - Do It Yourself Baking Kit ",
+    "description" : "The difference between a Dutch apple pie and a regular apple pie is a streusel topping of butter, flour, and sugar baked on top in a delicious sweet, crunchy twist. It's easier, and sweeter, than a pastry top, and makes a nice change of pace. This kit will have you bake your very own Dutch Apple Pie in no time at all. Serves two (or eight if they come in time to interrupt the two wolving down the pie) ",
+    "imageUrl" : "8f498b22-21e6-11e8-b467-0ed5f89f718b.jpg",
+    "price" : 4.50,
+    "size" : null,
+    "weight" : "0.800",
+    "dimension" : {
+      "unit" : "cm",
+      "length" : 15,
+      "height" : 6,
+      "width" : 10
+    },
+    "color" : "red",
+    "categories" : [ "baking","kitchen","diy" ],
+    "tags" : ["food", "vegetarian", "kitchen","halal"]
+   }
