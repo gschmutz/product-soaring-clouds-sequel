@@ -1,0 +1,19 @@
+{
+    "productId": "8f49849c-21e6-11e8-b467-0ed5f89f718b",
+    "code" : "FLOW-Bulbs-871",
+    "name" : "Blueberry Ripple™ Tulip (8 per package)",
+    "description" : "Give your garden a professional designer look by planting Blueberry Ripple in its midst. Sophisticated style and bold colour combine to create the perfect tulip for mass plantings or as a chic complement to darker hued varieties. Making its debut in mid spring, it wows with vibrant colour and a pleasing, egg-shaped form. Snowy white blooms are accented by rich purple-blue flames and sit prettily atop tall, dark stems. Planted in a sunny spot, it offers up loads of flowers for you to enjoy. This is an easy-to-grow, carefree variety that makes an ideal addition to containers, borders and cutting gardens, too.",
+    "imageUrl" : "8f49874e-21e6-11e8-b467-0ed5f89f718b.jpg",
+    "price" : 18.00,
+    "size" : null,
+    "weight" : "0.325",
+    "dimension" : {
+      "unit" : "cm",
+      "length" : 14,
+      "height" : 4,
+      "width" : 6.5
+    },
+    "color" : "blueberry",
+    "categories" : [ "flower", "garden" ],
+    "tags" : ["flower", "seed", "garden","bio","dutch"]
+   }
