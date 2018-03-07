@@ -22,6 +22,7 @@ import com.soaringclouds.product.model.ProductDO;
 import com.soaringclouds.product.repository.ProductRepository;
 import com.soaringclouds.product.service.CurrencyService;
 import com.soaringclouds.product.service.ProductService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
 public class ProductController {
@@ -79,7 +80,7 @@ public class ProductController {
     
     @RequestMapping(
             method = RequestMethod.GET, 
-            value = "/product"
+            value = "/products"
     )
     public ProductApi getProduct(@RequestParam(value="code", defaultValue="") String code)  {
         ProductApi product = new ProductApi();
@@ -110,6 +111,7 @@ public class ProductController {
             method = RequestMethod.GET,
             value= "/products"
     )
+    //@CrossOrigin(origins = "http://localhost:4200")
     public List<ProductApi> getProducts(@RequestParam(value="name", defaultValue="") String name,
     										@RequestParam(value="categoryName", defaultValue="") String categoryName)  {
         ProductApi product = new ProductApi();
