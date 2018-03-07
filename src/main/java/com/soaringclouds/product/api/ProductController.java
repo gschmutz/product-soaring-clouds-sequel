@@ -79,22 +79,6 @@ public class ProductController {
     }
     
     @RequestMapping(
-            method = RequestMethod.GET, 
-            value = "/products"
-    )
-    public ProductApi getProduct(@RequestParam(value="code", defaultValue="") String code)  {
-        ProductApi product = new ProductApi();
-        ProductDO productDO = null;
-        
-        if (code != null && code.length() > 0) {
-        		productDO = productRepository.findByProductCode(code);
-        } 
-        System.out.println(productDO);
-        product = ProductConverter.convert(productDO);
-        return product;
-    }    
-    
-    @RequestMapping(
             method = RequestMethod.POST,
             consumes = "application/json",
             value = "/products"
@@ -112,7 +96,8 @@ public class ProductController {
             value= "/products"
     )
     //@CrossOrigin(origins = "http://localhost:4200")
-    public List<ProductApi> getProducts(@RequestParam(value="name", defaultValue="") String name,
+    public List<ProductApi> getProducts(@RequestParam(value="code", defaultValue="") String code,
+    										@RequestParam(value="name", defaultValue="") String name,
     										@RequestParam(value="categoryName", defaultValue="") String categoryName)  {
         ProductApi product = new ProductApi();
         List<ProductDO> productsDO = null;
@@ -122,6 +107,8 @@ public class ProductController {
             	productsDO = productRepository.findProductsByProductNameRegex(name);        	
         } else if (categoryName != null & categoryName.length() > 0) {
         		productsDO = productRepository.findProductsByCategory(categoryName);        	
+        } else         if (code != null && code.length() > 0) {
+    			productsDO.add( productRepository.findByProductCode(code));
         } else {
         		productsDO = productRepository.findAll();   
         }
