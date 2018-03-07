@@ -100,7 +100,7 @@ public class ProductController {
     										@RequestParam(value="name", defaultValue="") String name,
     										@RequestParam(value="categoryName", defaultValue="") String categoryName)  {
         ProductApi product = new ProductApi();
-        List<ProductDO> productsDO = null;
+        List<ProductDO> productsDO = new ArrayList<ProductDO>();
         List<ProductApi> products = new ArrayList<ProductApi>();
         
         if (name != null & name.length() > 0) {
