@@ -108,7 +108,10 @@ public class ProductController {
         } else if (categoryName != null & categoryName.length() > 0) {
         		productsDO = productRepository.findProductsByCategory(categoryName);        	
         } else         if (code != null && code.length() > 0) {
-    			productsDO.add( productRepository.findByProductCode(code));
+        	 	ProductDO productDO = productRepository.findByProductCode(code);
+        	 	if (productDO != null) {
+        	 		productsDO.add(productDO);
+        	 	}
         } else {
         		productsDO = productRepository.findAll();   
         }
