@@ -3,6 +3,7 @@ package com.soaringclouds.product.api;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 import javax.validation.Valid;
 
@@ -10,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,6 +25,7 @@ import com.soaringclouds.product.repository.ProductRepository;
 import com.soaringclouds.product.service.CurrencyService;
 import com.soaringclouds.product.service.ProductService;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 public class ProductController {
@@ -90,7 +93,7 @@ public class ProductController {
             createProduct(productApi);
         }
     }
-
+/*
     @RequestMapping(
             method = RequestMethod.GET,
             value= "/products"
@@ -107,14 +110,85 @@ public class ProductController {
             	productsDO = productRepository.findProductsByProductNameRegex(name);        	
         } else if (categoryName != null & categoryName.length() > 0) {
         		productsDO = productRepository.findProductsByCategory(categoryName);        	
-        } else         if (code != null && code.length() > 0) {
+        } else if (code != null && code.length() > 0) {
+        	System.out.println (code);
         	 	ProductDO productDO = productRepository.findByProductCode(code);
+        	 System.out.println(productDO);
         	 	if (productDO != null) {
         	 		productsDO.add(productDO);
         	 	}
         } else {
         		productsDO = productRepository.findAll();   
         }
+        
+        for (ProductDO productDO : productsDO) {
+        		product = ProductConverter.convert(productDO);
+        		products.add(product);
+        }
+        return products;
+    }
+*/
+    @RequestMapping(
+            method = RequestMethod.GET,
+            value= "/product/{id}"
+    )
+    //@CrossOrigin(origins = "http://localhost:4200")
+    public ProductApi getProduct(@PathVariable(value="id") String id)  {
+        ProductApi product = new ProductApi();
+        ProductDO productDO = null;
+        // trim leading and training double quote
+        id = StringUtils.trimTrailingCharacter(StringUtils.trimLeadingCharacter(id, '"'),'"');
+        
+        //productsDO = productRepository.findAll(); 
+        
+        if (id != null && id.length() > 0) {
+        		productDO = productRepository.findById(id);
+        }
+        
+        if(productDO != null) {
+        		product = ProductConverter.convert(productDO);
+        }
+        return product;
+    }
+    
+    @RequestMapping(
+            method = RequestMethod.GET,
+            value= "/products"
+    )
+    //@CrossOrigin(origins = "http://localhost:4200")
+    public List<ProductApi> getProducts(@RequestParam(value="code", defaultValue="") String code,
+    										@RequestParam(value="name", defaultValue="") String name,
+    										@RequestParam(value="categoryName", defaultValue="") String categoryName)  {
+        ProductApi product = new ProductApi();
+        List<ProductDO> productsDO = new ArrayList<ProductDO>();
+        List<ProductApi> products = new ArrayList<ProductApi>();
+        Predicate<ProductDO> pred = null;
+        
+        // trim leading and training double quote
+//        id = StringUtils.trimTrailingCharacter(StringUtils.trimLeadingCharacter(id, '"'),'"');
+        code = StringUtils.trimTrailingCharacter(StringUtils.trimLeadingCharacter(code, '"'),'"');
+        name = StringUtils.trimTrailingCharacter(StringUtils.trimLeadingCharacter(name, '"'),'"');
+        categoryName = StringUtils.trimTrailingCharacter(StringUtils.trimLeadingCharacter(categoryName, '"'),'"');
+        
+        //productsDO = productRepository.findAll(); 
+        
+        if (name != null && name.length() > 0) {		
+            	productsDO = productRepository.findProductsByProductNameRegex(name);        	
+        } else if (categoryName != null && categoryName.length() > 0) {
+        		productsDO = productRepository.findProductsByCategory(categoryName);        	
+        } else if (code != null && code.length() > 0) {	
+        	System.out.println (code);        	
+    			ProductDO productDO = productRepository.findByProductCode(code);  
+    			if (productDO != null) {
+    				productsDO.add(productDO);
+    			}
+        		//productsDO.removeIf(p-> !(p.getProductCode().equals(code)));
+        } else {
+        		productsDO = productRepository.findAll();   
+        }
+        
+        if (pred != null)
+        		productsDO.removeIf(pred);
         
         for (ProductDO productDO : productsDO) {
         		product = ProductConverter.convert(productDO);

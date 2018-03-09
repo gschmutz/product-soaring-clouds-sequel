@@ -15,6 +15,8 @@ import com.soaringclouds.product.model.ProductDO;
 @Repository
 public interface ProductRepository extends MongoRepository<ProductDO, String> {
 	
+	  ProductDO findById(String id);
+	
 	  @Query("{ 'productCode' : ?0 }")
 	  ProductDO findByProductCode(String productCode);
 	  
