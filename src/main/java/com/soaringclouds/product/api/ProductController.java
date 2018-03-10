@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Predicate;
 
 import javax.activation.FileTypeMap;
@@ -14,6 +15,12 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.gridfs.GridFsCriteria;
+import org.springframework.data.mongodb.gridfs.GridFsOperations;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,8 +30,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.google.common.base.Preconditions;
+import com.mongodb.gridfs.GridFSDBFile;
 import com.soaringclouds.product.model.CurrencyDO;
 import com.soaringclouds.product.model.ProductDO;
 import com.soaringclouds.product.repository.ProductRepository;
@@ -47,6 +56,9 @@ public class ProductController {
 
     @Autowired
     private ProductService productService;
+    
+	@Autowired
+	private GridFsOperations gridOperations;    
 
     private void createProduct(ProductApi productApi) throws ParseException {
         ProductDO productDO = ProductConverter.convert(productApi);
@@ -66,8 +78,21 @@ public class ProductController {
         productService.addProductToShoppingCart(toShoppingCartApi.sessionId, toShoppingCartApi.customerId, currencyDO, toShoppingCartApi.quantity, productDO);
         LOGGER.info("Prodcut created: " + productDO);
     }
+    
+    private List<GridFSDBFile> getFiles() {
+        return gridOperations.find(null);
+    }
 
-    @RequestMapping(value= "/product",
+    private Optional<GridFSDBFile> maybeLoadFile(String name) {
+        GridFSDBFile file = gridOperations.findOne(getFilenameQuery(name));
+        return Optional.ofNullable(file);
+    }
+
+    private static Query getFilenameQuery(String name) {
+        return Query.query(GridFsCriteria.whereFilename().is(name));
+    }
+
+    @RequestMapping(value= "/products",
             method = RequestMethod.POST,
             consumes = "application/json") 
     @Transactional
@@ -87,54 +112,7 @@ public class ProductController {
         
         modifyProduct(productApi);
     }
-    
-    @RequestMapping(
-            method = RequestMethod.POST,
-            consumes = "application/json",
-            value = "/products"
-    )
-    @Transactional
-    public void postProducts(@RequestBody @Valid ProductApi[] productApis) throws ParseException {
-        Preconditions.checkNotNull(productApis);
-        for (ProductApi productApi : productApis) {
-            createProduct(productApi);
-        }
-    }
-/*
-    @RequestMapping(
-            method = RequestMethod.GET,
-            value= "/products"
-    )
-    //@CrossOrigin(origins = "http://localhost:4200")
-    public List<ProductApi> getProducts(@RequestParam(value="code", defaultValue="") String code,
-    										@RequestParam(value="name", defaultValue="") String name,
-    										@RequestParam(value="categoryName", defaultValue="") String categoryName)  {
-        ProductApi product = new ProductApi();
-        List<ProductDO> productsDO = new ArrayList<ProductDO>();
-        List<ProductApi> products = new ArrayList<ProductApi>();
-        
-        if (name != null & name.length() > 0) {
-            	productsDO = productRepository.findProductsByProductNameRegex(name);        	
-        } else if (categoryName != null & categoryName.length() > 0) {
-        		productsDO = productRepository.findProductsByCategory(categoryName);        	
-        } else if (code != null && code.length() > 0) {
-        	System.out.println (code);
-        	 	ProductDO productDO = productRepository.findByProductCode(code);
-        	 System.out.println(productDO);
-        	 	if (productDO != null) {
-        	 		productsDO.add(productDO);
-        	 	}
-        } else {
-        		productsDO = productRepository.findAll();   
-        }
-        
-        for (ProductDO productDO : productsDO) {
-        		product = ProductConverter.convert(productDO);
-        		products.add(product);
-        }
-        return products;
-    }
-*/
+
     @RequestMapping(
             method = RequestMethod.GET,
             value= "/product/{id}"
@@ -206,12 +184,34 @@ public class ProductController {
 
     @RequestMapping(
             method = RequestMethod.GET,
-            value= "/image/{id}"
+            value= "/images/{id}"
     )
     public ResponseEntity<byte[]> getImage(@PathVariable(value="id") String id) throws IOException{
-        File img = new File("src/main/data/image/" + id + ".jpg");
+        
+    		String fileName = id + ".jpg";
+        GridFSDBFile imageFile = gridOperations.findOne(new Query(Criteria.where("filename").is(fileName)));
+        imageFile.writeTo("/tmp/"+imageFile.getFilename());
+        File img = new File("/tmp/"+imageFile.getFilename());
         return ResponseEntity.ok().contentType(MediaType.valueOf(FileTypeMap.getDefaultFileTypeMap().getContentType(img))).body(Files.readAllBytes(img.toPath()));
     }   
+    
+    @RequestMapping(
+    			method = RequestMethod.POST,
+    			value="/images")
+    public HttpEntity<byte[]> createOrUpdate(@RequestParam("file") MultipartFile file) {
+      String name = file.getOriginalFilename();
+      try {
+        Optional<GridFSDBFile> existing = maybeLoadFile(name);
+        if (existing.isPresent()) {
+        	gridOperations.delete(getFilenameQuery(name));
+        }
+        gridOperations.store(file.getInputStream(), name, file.getContentType()).save();
+        String resp = "<script>window.location = '/';</script>";
+        return new HttpEntity<>(resp.getBytes());
+      } catch (IOException e) {
+        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+      }
+    }    
     
     @RequestMapping(value= "/shoppingCart",
             method = RequestMethod.POST,
@@ -223,5 +223,5 @@ public class ProductController {
         
         createToShoppingCart(toShoppingCartApi);
     }
-
+    
 }
