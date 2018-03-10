@@ -1,15 +1,21 @@
 package com.soaringclouds.product.api;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
+import javax.activation.FileTypeMap;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,6 +31,7 @@ import com.soaringclouds.product.repository.ProductRepository;
 import com.soaringclouds.product.service.CurrencyService;
 import com.soaringclouds.product.service.ProductService;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
@@ -197,6 +204,15 @@ public class ProductController {
         return products;
     }
 
+    @RequestMapping(
+            method = RequestMethod.GET,
+            value= "/image/{id}"
+    )
+    public ResponseEntity<byte[]> getImage(@PathVariable(value="id") String id) throws IOException{
+        File img = new File("src/main/data/image/" + id + ".jpg");
+        return ResponseEntity.ok().contentType(MediaType.valueOf(FileTypeMap.getDefaultFileTypeMap().getContentType(img))).body(Files.readAllBytes(img.toPath()));
+    }   
+    
     @RequestMapping(value= "/shoppingCart",
             method = RequestMethod.POST,
             consumes = "application/json") 
