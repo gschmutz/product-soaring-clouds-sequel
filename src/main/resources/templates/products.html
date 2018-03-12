@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Spring Framework Guru</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+ <form>
+        <div class="well">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search products..."/>
+                <span class="input-group-btn">
+                  <button class="btn btn-primary" type="submit">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    <div th:if="${not #lists.isEmpty(products)}">
+        <h2>Product List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>View</th>
+                <th>Action</th>
+            </tr>
+            <tr th:each="product : ${products}">
+            		<td> 
+            			<div class="product-image">
+            			<img th:src="${'api/images/' + product.id}" class="img-thumbnail img-responsive img-fluid" alt="194x228"/>
+            			</div>
+            		</td> 
+                <td th:text="${product.productName}">Name</td>
+                <td th:text="${'EUR ' + product.price}">Price</td>
+                <td><a th:href="${ '/product/' + product.id}">Details</a></td>
+				<td><div class="col-md-6 col-sm-6 col-xs-6"> 
+					<a th:href="${'/product/addToCart/' + product.id}" class="btn btn-success">Add to cart</a>
+				</div></td>            
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>

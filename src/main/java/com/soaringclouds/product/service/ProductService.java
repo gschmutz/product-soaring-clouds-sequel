@@ -15,7 +15,13 @@ import com.soaringclouds.product.model.ProductDO;
  */
 @Service
 public interface ProductService {
-    
+
+	public List<ProductDO> findAll();
+	public ProductDO findById(String id);
+	public ProductDO findByProductCode(String productCode);
+	public List<ProductDO> findProductsByCategory(String categoryName);
+	public List<ProductDO> findProductsByName(String searchString);	
+	
     public void createProduct(ProductDO product);
     public void modifyProduct(ProductDO product);
     public void removeProduct(ProductDO product);

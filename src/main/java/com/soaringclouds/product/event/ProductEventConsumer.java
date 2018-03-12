@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 import com.soaringclouds.avro.product.v1.Product;
 
-//@Component
+@Component
 public class ProductEventConsumer {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ProductEventConsumer.class);
 

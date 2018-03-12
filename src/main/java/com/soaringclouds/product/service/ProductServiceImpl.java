@@ -1,5 +1,7 @@
 package com.soaringclouds.product.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -22,6 +24,26 @@ public class ProductServiceImpl implements ProductService {
 	@Autowired
 	private ToShoppingCartEventProducer toShoppingCartEventProducer;
 
+	public List<ProductDO> findAll() {
+		return productRepository.findAll();
+	}
+	
+	public ProductDO findById(String id) {
+		return productRepository.findById(id);
+	}
+	
+	public ProductDO findByProductCode(String productCode) {
+		return productRepository.findByProductCode(productCode);
+	}
+	
+	public List<ProductDO> findProductsByCategory(String categoryName) {
+		return productRepository.findProductsByCategory(categoryName);		
+	}
+	
+	public List<ProductDO> findProductsByName(String searchString) {
+		return productRepository.findProductsByProductNameRegex(searchString);
+	}
+	
 	@Override
 	public void createProduct(ProductDO product) {
 		//product.setId(UUID.randomUUID());

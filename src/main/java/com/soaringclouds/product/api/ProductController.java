@@ -43,7 +43,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@RestController
+@RestController()
 public class ProductController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ProductController.class);
@@ -92,7 +92,7 @@ public class ProductController {
         return Query.query(GridFsCriteria.whereFilename().is(name));
     }
 
-    @RequestMapping(value= "/products",
+    @RequestMapping(value= "/api/products",
             method = RequestMethod.POST,
             consumes = "application/json") 
     @Transactional
@@ -102,7 +102,7 @@ public class ProductController {
         createProduct(productApi);
     }
     
-    @RequestMapping(value= "/product",
+    @RequestMapping(value= "/api/product",
             method = RequestMethod.PUT,
             consumes = "application/json") 
     @Transactional
@@ -115,7 +115,7 @@ public class ProductController {
 
     @RequestMapping(
             method = RequestMethod.GET,
-            value= "/product/{id}"
+            value= "/api/product/{id}"
     )
     //@CrossOrigin(origins = "http://localhost:4200")
     public ProductApi getProduct(@PathVariable(value="id") String id)  {
@@ -138,7 +138,7 @@ public class ProductController {
     
     @RequestMapping(
             method = RequestMethod.GET,
-            value= "/products"
+            value= "/api/products"
     )
     //@CrossOrigin(origins = "http://localhost:4200")
     public List<ProductApi> getProducts(@RequestParam(value="code", defaultValue="") String code,
@@ -184,12 +184,13 @@ public class ProductController {
 
     @RequestMapping(
             method = RequestMethod.GET,
-            value= "/images/{id}"
+            value= "/api/images/{id}"
     )
     public ResponseEntity<byte[]> getImage(@PathVariable(value="id") String id) throws IOException{
         
     		String fileName = id + ".jpg";
         GridFSDBFile imageFile = gridOperations.findOne(new Query(Criteria.where("filename").is(fileName)));
+ 
         imageFile.writeTo("/tmp/"+imageFile.getFilename());
         File img = new File("/tmp/"+imageFile.getFilename());
         return ResponseEntity.ok().contentType(MediaType.valueOf(FileTypeMap.getDefaultFileTypeMap().getContentType(img))).body(Files.readAllBytes(img.toPath()));
@@ -197,7 +198,7 @@ public class ProductController {
     
     @RequestMapping(
     			method = RequestMethod.POST,
-    			value="/images")
+    			value="/api/images")
     public HttpEntity<byte[]> createOrUpdate(@RequestParam("file") MultipartFile file) {
       String name = file.getOriginalFilename();
       try {
@@ -213,7 +214,7 @@ public class ProductController {
       }
     }    
     
-    @RequestMapping(value= "/shoppingCart",
+    @RequestMapping(value= "/api/shoppingCart",
             method = RequestMethod.POST,
             consumes = "application/json") 
     @Transactional
