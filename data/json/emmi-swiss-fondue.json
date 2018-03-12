@@ -1,0 +1,19 @@
+{
+ "productId": "a91c2ac1-e896-49a6-9261-73a72994a152",
+ "code" : "B009X8PF2S",
+ "name" : "Emmi Cheese Fondue Original 800g (2x400 g)",
+ "description" : "The original Emmi cheese fondue. Delicious and exceptional quality.",
+ "imageUrl" : "a91c2ac1-e896-49a6-9261-73a72994a152.jpg",
+ "price" : 14.30,
+ "size" : null,
+ "weight" : "0.531",
+ "dimension" : {
+   "unit" : "cm",
+   "length" : 22.9,
+   "height" : 11.4,
+   "width" : 6.9
+ },
+ "color" : "red",
+ "categories" : [ "cheese", "food", "home & kitchen" ],
+ "tags" : []
+}

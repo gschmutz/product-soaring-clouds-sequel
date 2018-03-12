@@ -1,0 +1,19 @@
+{
+ "productId": "11ca0ef4-7f82-4db9-b634-eab037fbae3a",
+ "code" : "B00OKYMY5Q",
+ "name" : "Victorinox Tinker (12 Function Pocket Knife Can Opener with KL. Screwdriver, Phillips Screwdriver",
+ "description" : "Features: Large, blade Small Blade, can opener, screwdriver 3 mm, bottle opener, wire insulator",
+ "imageUrl" : "11ca0ef4-7f82-4db9-b634-eab037fbae3a.jpg",
+ "price" : 17.50,
+ "size" : null,
+ "weight" : "0.81",
+ "dimension" : {
+   "unit" : "cm",
+   "length" :  2.5,
+   "height" :  9.1,
+   "width" :  1.45
+ },
+ "color" : "red",
+ "categories" : [ "knife", "sports & outdoor", "tool" ],
+ "tags" : []
+}

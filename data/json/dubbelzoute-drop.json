@@ -1,0 +1,19 @@
+{
+    "productId": "8f498898-21e6-11e8-b467-0ed5f89f718b",
+    "code" : "CAND-Lic-12",
+    "name" : "Double Salt Black Licorice",
+    "description" : "Salty liquorice or hard liquorice, is a variety of liquorice flavoured with ammonium chloride, common in the Nordic countries, Benelux, and northern Germany.[1] Ammonium chloride gives salty liquorice an astringent, salty taste[2] (hence the name), which has been described as tongue-numbing and 'almost-stinging'.[1] Salty liquorice is an acquired taste[1] and people not familiar with ammonium chloride might find it physically intense and distasteful. Salty liquorice candies are almost always black or very dark brown and can range from very soft to very hard, and sometimes brittle. The other colours used are white and variants of grey. Salty liquorice is also used as a flavouring in other products, such as ice creams and alcoholic beverages.",
+    "imageUrl" : "8f498898-21e6-11e8-b467-0ed5f89f718b.jpg",
+    "price" : 3.50,
+    "size" : null,
+    "weight" : "0.500",
+    "dimension" : {
+      "unit" : "cm",
+      "length" : 12,
+      "height" : 5,
+      "width" : 8
+    },
+    "color" : "black",
+    "categories" : [ "candy" ],
+    "tags" : ["sugar", "vegan", "licorice","candy","dutch"]
+   }
