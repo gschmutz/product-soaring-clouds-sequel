@@ -1,0 +1,19 @@
+{
+ "productId": "d452fa48-113c-45de-8671-8805159b7462",
+ "code" : "B003SGFNCS",
+ "name" : "Haribo Goldbears Fruit Gum",
+ "description" : "Tasty fruit gums in the delicious, fruity flavours of pineapple, apple, strawberry, raspberry, juice orange and lemon. Our successful product for more than 90 years.",
+ "imageUrl" : "d452fa48-113c-45de-8671-8805159b7462.jpg",
+ "price" : 8.21,
+ "size" : null,
+ "weight" : "1.000",
+ "dimension" : {
+   "unit" : "cm",
+   "length" : 22.9,
+   "height" : 11.4,
+   "width" : 6.9
+ },
+ "color" : "mixed",
+ "categories" : [ "sweets", "fruit gums", "food & beverages" ],
+ "tags" : []
+}

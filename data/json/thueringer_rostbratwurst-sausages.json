@@ -1,0 +1,19 @@
+{
+ "productId": "c3f62277-c786-4e39-a8b5-b798e3909f0f",
+ "code" : "B003XJ8VSS",
+ "name" : "Theringer Rostbratwurst Sausage",
+ "description" : "Butcher's shop since 1880: In the fourth generation, our meat products are made from freshly slaughtered meats with master craftsmanship. The modern company and committed employees guarantee the highest hygiene standards. Over 10 years of shipping experience: The dispatch directly from the butcher's shop usually takes place within 24 hours (except on weekends). We deliver in insulated boxes with cooling pads or dry ice. Your product is not cut, straightened or often freshly manufactured until after receipt of your order. Fresh products are subject to a quick turnover, so in exceptional cases it can happen that the product is not available at short notice due to overlapping orders. We always try to deliver as fast as possible and only in exceptional cases we send equivalent or higher value replacement parts. Healthy products: For decades, the demand for healthy meat and sausage products, especially from our spa guests, has been very high. We meet this challenge with our ecologically produced products. Additives are only used if technologically necessary.",
+ "imageUrl" : "c3f62277-c786-4e39-a8b5-b798e3909f0f.jpg",
+ "price" : 11.39,
+ "size" : null,
+ "weight" : "1.0",
+ "dimension" : {
+   "unit" : "cm",
+   "length" : 22.9,
+   "height" : 11.4,
+   "width" : 6.9
+ },
+ "color" : "red",
+ "categories" : [ "meat", "sausages", "food & beverages",  "bratwurst" ],
+ "tags" : []
+}

@@ -1,0 +1,19 @@
+{
+ "productId": "63236f46-7a13-4390-825d-08cadcdca55c",
+ "code" : "B011EI6B4A",
+ "name" : "Nutella Nut Nougat Creme",
+ "name" : "Fine nut-nougat cream. A delicious spread; ideal for breakfast.",
+ "imageUrl" : "63236f46-7a13-4390-825d-08cadcdca55c.jpg",
+ "price" : 2.79,
+ "size" : null,
+ "weight" : "0.450",
+ "dimension" : {
+   "unit" : "cm",
+   "length" : 22.9,
+   "height" : 11.4,
+   "width" : 6.9
+ },
+ "color" : "red",
+ "categories" : [ "jams", "honey", "food & beverages", "spread", "nut-nougat cream", "sweets" ],
+ "tags" : []
+}

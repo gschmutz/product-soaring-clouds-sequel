@@ -1,0 +1,19 @@
+{
+ "productId": "7c43932a-ab36-4644-a44e-b57a49ca6493",
+ "code" : "B001ABW2PY",
+ "name" : "Santa Claus",
+ "description" : "This Santa Claus incense smoking is made by the woodturning workshop Uhlig from Aue in the Erzgebirge. The beard is made of natural fur and underlines the high quality of Uhlig smoking men.",
+ "imageUrl" : "7c43932a-ab36-4644-a44e-b57a49ca6493.jpg",
+ "price" : 40.10,
+ "size" : null,
+ "weight" : "2.500",
+ "dimension" : {
+   "unit" : "cm",
+   "length" : 22.9,
+   "height" : 20.0,
+   "width" : 6.9
+ },
+ "color" : "mixed",
+ "categories" : [ "kitchen, household & living", "christmas", "decoration" ],
+ "tags" : []
+}
