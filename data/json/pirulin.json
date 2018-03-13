@@ -1,0 +1,19 @@
+{
+ "productId": "4290617c-2612-11e8-b467-0ed5f89f718b",
+ "code" : "B00B40CJX6",
+ "name" : "Pirulin (300g) ORIGINAL",
+ "description" : "Pirulin`s of Venezuelan Chocolate . With Venezuelan Flavor....! Taste or give on this so special day the best chocolate of the world. NOTE: For safety reasons, it is probable that the North American Customs opens the tins (cans) to inspect them, this is a normal condition and does not affect the quality of our product. We wait for his comprehension.",
+ "imageUrl" : "pirulin.jpg",
+ "price" : 14,
+ "size" : null,
+ "weight" : "1.3",
+ "dimension" : {
+   "unit" : "cm",
+   "length" : 2.1,
+   "height" : 2.1,
+   "width" : 9.9
+ },
+ "color" : "brown",
+ "categories" : ["Grocery & Gourmet Food", "Snack Foods", "Cookies", "Wafers"],
+ "tags" : ["Grocery & Gourmet Food", "Snack Foods", "Cookies", "Wafers", "Pirulin", "Venezuela"]
+}

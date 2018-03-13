@@ -1,0 +1,19 @@
+{
+ "productId": "53c09c52-2615-11e8-b467-0ed5f89f718b",
+ "code" : "B01MAV7SVC",
+ "name" : "Cocosette, Wafer Cookie Filled with Coconut Cream, (pack of 21 - 50 g. each) - 37 oz",
+ "description" : "Nestle's Cocosette is an exquisite combination of a crunchy cookie wafer filled with rich coconut cream. Each box contains 21 pieces - Imported from Venezuela.",
+ "imageUrl" : "cocosette.jpg",
+ "price" : 25,
+ "size" : null,
+ "weight" : "1.17",
+ "dimension" : {
+   "unit" : "cm",
+   "length" : 20.32,
+   "height" : 7.62,
+   "width" : 10.16
+ },
+ "color" : "brown",
+ "categories" : ["Cooking & Baking", "Flours & Meals", "Corn", "Food"],
+ "tags" : ["Cooking & Baking", "Flours & Meals", "Corn", "Food", "Venezuela"]
+}

@@ -1,0 +1,19 @@
+{
+ "productId": "42905c9a-2612-11e8-b467-0ed5f89f718b",
+ "code" : "AREPA2000",
+ "name" : "P.A.N Harina Blanca - Pre-cooked White Corn Meal 2lbs 3.3oz",
+ "description" : "P.A.N. pre-cooked corn meal is a unique product made out of pure corn. It is gluten-free and does not use any preservatives, artificial colors or flavorings as it is the result of a chemical-free production process. Just by adding water, P.A.N makes instant corn dough, creating a variety of delicious and easy corn based dishes that can be adapted to different tastes and customs.",
+ "imageUrl" : "harina-pan.jpg",
+ "price" : 5,
+ "size" : null,
+ "weight" : "1.0",
+ "dimension" : {
+   "unit" : "cm",
+   "length" : 20.32,
+   "height" : 7.62,
+   "width" : 10.16
+ },
+ "color" : "yellow",
+ "categories" : ["Cooking & Baking", "Flours & Meals", "Corn", "Food"],
+ "tags" : ["Cooking & Baking ", "Flours & Meals", "Corn", "Food", "Venezuela"]
+}
