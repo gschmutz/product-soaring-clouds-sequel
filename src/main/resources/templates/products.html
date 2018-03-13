@@ -7,50 +7,54 @@
     <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
 </head>
 <body>
-<div class="container">
- <form>
-        <div class="well">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search products..."/>
-                <span class="input-group-btn">
-                  <button class="btn btn-primary" type="submit">
-                    <i class="fa fa-search"></i>
-                  </button>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </form>
-    <div th:if="${not #lists.isEmpty(products)}">
-        <h2>Product List</h2>
-        <table class="table table-striped">
-            <tr>
-                <th></th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>View</th>
-                <th>Action</th>
-            </tr>
-            <tr th:each="product : ${products}">
-            		<td> 
-            			<div class="product-image">
-            			<img th:src="${'api/images/' + product.id}" class="img-thumbnail img-responsive img-fluid" alt="194x228"/>
-            			</div>
-            		</td> 
-                <td th:text="${product.productName}">Name</td>
-                <td th:text="${'EUR ' + product.price}">Price</td>
-                <td><a th:href="${ '/product/' + product.id}">Details</a></td>
-				<td><div class="col-md-6 col-sm-6 col-xs-6"> 
-					<a th:href="${'/product/addToCart/' + product.id}" class="btn btn-success">Add to cart</a>
-				</div></td>            
-            </tr>
-        </table>
+<div class="product-content product-wrap clearfix product-deatil">
+		<div class="row" id="C">
 
-    </div>
-</div>
+			<div class="col-sm-4 col-md-10">
+
+				<form action="/productSearch">
+					<div class="well">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="input-group">
+									<input type="text" class="form-control" name="search-term"
+										placeholder="Search products..." />
+								</div>
+							</div>
+							<div class="col-md-4">
+								<span class="input-group-btn">
+									<button class="btn btn-primary" type="submit">Search</button>
+								</span>
+
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div th:if="${not #lists.isEmpty(products)}">
+				<table class="table">
+					<tr th:each="product : ${products}">
+						<td>
+							<div class="product-image">
+								<img th:src="${'/api/images/' + product.id}"
+									class="img-thumbnail img-fluid" alt="194x228" />
+							</div>
+						</td>
+						<td><p class="font-weight-bold" th:text="${product.productName}">Name</p></td>
+						<td><p th:text="${'EUR ' + product.price}">Price</p></td>
+						<td><div class="col-md-6 col-sm-6 col-xs-6">
+								<a th:href="${'/product/' + product.id}" class="btn btn-primary">Details</a>
+							</div></td>
+						<!-- 				<td><div class="col-md-6 col-sm-6 col-xs-6"> 
+					<a th:href="${'/product/addToCart/' + product.id}" class="btn btn-success">Add to cart</a>
+				</div></td>       -->
+					</tr>
+					<hr />
+				</table>
+
+			</div>
+		</div>
+	</div> 
 
 </body>
 </html>
