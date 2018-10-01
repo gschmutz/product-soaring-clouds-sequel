@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Spring Framework Guru</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"/>
+	<div class="container">
+	<div class="row">
+	    <div class="col-sm-4 col-md-3">
+	      <form>
+	        <div class="well">
+	          <div class="row">
+	            <div class="col-sm-12">
+	              <div class="input-group">
+	                <input type="text" class="form-control" placeholder="Search products..."/>
+	                <span class="input-group-btn">
+	                  <button class="btn btn-primary" type="submit">
+	                    <i class="fa fa-search"></i>
+	                  </button>
+	                </span>
+	              </div>
+	            </div>
+	          </div>
+	        </div>
+	      </form>
+	     </div>
+      </div>
+
+    
+    <div class="col-sm-8 col-md-9">
+      <!-- Filters -->
+      <ul class="shop__sorting">
+        <li class="active"><a href="#">Popular</a></li>
+        <li><a href="#">Newest</a></li>
+        <li><a href="#">Bestselling</a></li>
+        <li><a href="#">Price (low)</a></li>
+        <li><a href="#">Price (high)</a></li>
+      </ul>
+
+      <div class="row">
+            <tr th:each="product : ${products}">
+      
+        <div class="col-sm-6 col-md-4">
+          <div class="shop__thumb">
+            <a href="#">
+              <div class="shop-thumb__img">
+                <img src="https://lorempixel.com/400/400/technics/1/" class="img-responsive" alt="..."/>
+              </div>
+              <h5 class="shop-thumb__title">
+                Product Title
+              </h5>
+              <div class="shop-thumb__price">
+                <span class="shop-thumb-price_old">$80.99</span>
+                <span class="shop-thumb-price_new">$59.99</span>
+              </div>
+            </a>
+          </div>
+        </div>
+       	</tr>
+       </div>
+
+	</div>
+  
+</div>
+
+</body>
+</html>

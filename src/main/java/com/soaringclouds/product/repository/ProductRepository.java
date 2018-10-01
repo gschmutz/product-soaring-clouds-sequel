@@ -36,5 +36,13 @@ public interface ProductRepository extends MongoRepository<ProductDO, String> {
 	   */
 	  @Query("{ 'productName':{$regex:?0,$options:'i'} }") 
 	  List<ProductDO> findProductsByProductNameRegex(String searchString);
-	  
+
+	  /**
+	   * find all products by search string. you need the following index on MongoDB: db.products.createIndex({ "$**": "text" },{ name: "TextIndex" })
+	   * @param searchString
+	   * @return
+	   */
+	  @Query("{ $text: { $search: ?0  } }")
+	  List<ProductDO> findProductsBySearchString(String searchString);
+
 }

@@ -21,6 +21,7 @@ public interface ProductService {
 	public ProductDO findByProductCode(String productCode);
 	public List<ProductDO> findProductsByCategory(String categoryName);
 	public List<ProductDO> findProductsByName(String searchString);	
+	public List<ProductDO> findProductsBySearchString(String searchString);
 	
     public void createProduct(ProductDO product);
     public void modifyProduct(ProductDO product);

@@ -25,7 +25,7 @@ public class ProductRepositoryTest {
         Assert.assertEquals("AX329T", product.getProductCode());
     }
 
-    @Test
+    //@Test
     public void shouldSaveProduct() {
         ProductDO product = new ProductDO();
         product.setColor("red");

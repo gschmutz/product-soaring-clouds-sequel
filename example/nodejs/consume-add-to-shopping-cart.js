@@ -26,9 +26,9 @@ kafkaLog.addStream({
 
 
 kafkaAvro.getConsumer({
-  'group.id': 'librd-test2',
+  'group.id': 'to-cart-gus-consumer',
   'socket.keepalive.enable': true,
-  'enable.auto.commit': true,
+  'enable.auto.commit': false
 })
     // the "getConsumer()" method will return a bluebird promise.
     .then(function(consumer) {

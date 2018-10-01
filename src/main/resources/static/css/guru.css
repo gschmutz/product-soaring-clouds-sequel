@@ -4,7 +4,7 @@ body{
 }
 
 .product-content {
-    border: 2px solid #dfe5e9;
+    border: 1px solid #dfe5e9;
     margin-bottom: 20px;
     margin-top: 12px;
     background: #fff;
@@ -123,6 +123,7 @@ body{
     font-size: 13px
 }
 
+
 .load-more-btn {
     background-color: #21c2f8;
     border-bottom: 2px solid #037ca5;
@@ -214,7 +215,7 @@ body{
 }
 
 .product-deatil .product-image {
-    border-right: 0px solid #fff !important
+    border-right: none!important
 }
 
 .product-deatil .name {
@@ -269,6 +270,7 @@ body{
 .product-deatil .certified ul li {
     display: inline-block;
     background-color: #f9f9f9;
+    border: 1px solid #ccc;
     padding: 13px 19px
 }
 
@@ -316,3 +318,21 @@ body{
         position: relative
     }
 }
+
+.message img.online {
+    width:40px;
+    height:40px;
+}
+
+.product-image img {
+    height:200px;
+}
+
+.product-image-detail img {
+    height:300px;
+}
+
+.form-control input {
+	 width:40px;
+}
+
