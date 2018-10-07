@@ -6,3 +6,5 @@ example/nodejs/node_modules/**
 data/node_modules/**
 .classpath
 .project
+.classpath
+.project
