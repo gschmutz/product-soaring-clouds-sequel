@@ -3,3 +3,6 @@ target/**
 example/nodejs/node_modules/**
 .classpath
 .settings/oracle.eclipse.tools.webtier.ui.prefs
+data/node_modules/**
+.classpath
+.project
