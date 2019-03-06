@@ -2,9 +2,11 @@
 
 Before you can use the code, the [Kafka-Avro](https://github.com/waldophotos/kafka-avro/blob/edeaf037d0248671d484c97840b8a8963153daf4/README.md) library has to be installed:
 
-```bash
+```
+bash
 npm install kafka-avro --save
 ```
+
 If you want to enable logging of the Kafka-Avro library, then set the environment variable `KAFKA_AVRO_LOG_LEVEL` to either `info` or `debug`. 
 
 ## Consuming from "product" topic

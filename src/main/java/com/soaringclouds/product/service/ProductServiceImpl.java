@@ -44,6 +44,10 @@ public class ProductServiceImpl implements ProductService {
 		return productRepository.findProductsByProductNameRegex(searchString);
 	}
 	
+	public List<ProductDO> findProductsBySearchString(String searchString) {
+		return productRepository.findProductsBySearchString(searchString);
+	}
+	
 	@Override
 	public void createProduct(ProductDO product) {
 		//product.setId(UUID.randomUUID());
