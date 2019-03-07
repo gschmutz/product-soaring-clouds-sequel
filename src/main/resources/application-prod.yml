@@ -1,12 +1,10 @@
 spring:
   data.mongodb:
     database: products                 # Database name.
-    address: 129.150.114.134          # mongodb address
+    address: localhost          # mongodb address
     uri: mongodb://${spring.data.mongodb.address}:27017    # Mongo database URI. Cannot be set with host, port and credentials.
   
   kafka:
-#    bootstrap-servers: localhost:9092
-#    bootstrap-servers: 129.150.114.134:9092
     bootstrap-servers: 129.150.77.116:6667
     kafka.acks: all
     retries: 0
@@ -15,7 +13,7 @@ spring:
       group-id: product-group  
 #    producer.key-serializer: org.apache.kafka.common.serialization.StringSerializer
     value.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
-    schema-registry-url: http://129.150.114.134:8081
+    schema-registry-url: http://localhost:8081
 
   jackson.serialization.indent_output: true
   
@@ -23,4 +21,6 @@ kafka:
   topic:
     addToShoppingCart: a516817-soaring-add-to-shopping-cart
     product: a516817-soaring-products
-#    product: product
+
+management:
+  server:port: 8080
