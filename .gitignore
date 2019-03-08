@@ -5,3 +5,4 @@ example/nodejs/node_modules/**
 .settings/oracle.eclipse.tools.webtier.ui.prefs
 .classpath
 .classpath
+*.jar
