@@ -1,0 +1,18 @@
+{
+ "productId": "af4d6520-794f-48b7-a635-9d590986b8a3",
+ "code" : "B01ELAHA8E",
+ "name" : "Rowntrees Fruit Pastilles Sharing Bag 170g (Pack of 12)",
+ "description" : "Good to remember 25% fruit juice is squeezed into these Rowntree's Fruit Pastilles. Enjoy as part of a varied, balanced diet and healthy lifestyle. Each 1/4 bag serving contains Calories 122 = 7%, Sugars 19.8g = 23%. Fat Nil = 0%, Saturates Nil = 0%, Salt 0.1g = 2% of a child's guideline daily amount.",
+ "price" : 25,
+ "size" : null,
+ "weight" : "154",
+ "dimension" : {
+   "unit" : "cm",
+   "length" : 1,
+   "height" : 1,
+   "width" : 1
+ },
+ "color" : "green",
+ "categories" : ["Food", "Candies"],
+ "tags" : ["Candies", "UK"]
+}

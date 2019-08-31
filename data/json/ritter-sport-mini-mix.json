@@ -1,0 +1,19 @@
+{
+ "productId": "fff39f9a-c29a-49e2-9120-c3d0772a57d9",
+ "code" : "B003TF6BXS",
+ "name" : "Ritter Sport mini colorful mix (84 x 16.67 g)",
+ "description" : "Whether roasted hazelnut pieces, marzipan, fine nougat, crunchy cornflakes, refreshing yoghurt cream or strong whole milk - every mini square is a small delicacy.",
+ "imageUrl" : "ritter-sport-mini",
+ "price" : 15,
+ "size" : null,
+ "weight" : "1.56",
+ "dimension" : {
+   "unit" : "cm",
+   "length" : 22,
+   "height" : 10,
+   "width" : 22
+ },
+ "color" : "various",
+ "categories" : ["Choclate", "Food"],
+ "tags" : ["Grocery ", "Chocolate Boxes & Gifts", "Food", "Confectionery", "Germany"]
+}

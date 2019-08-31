@@ -1,0 +1,19 @@
+{
+ "productId": "b4aaa596-c8f0-43f5-8821-3bc9fbf3d726",
+ "code" : "B0778RD8JT",
+ "name" : "On Running Womens Cloud X Shoe",
+ "description" : "The performance upper of the Cloud X uses an engineered mesh of the highest quality and material strength. Light and breathable in all the right places, it supports you without suffocating your foot`s freedom of movement.",
+ "imageUrl" : "on-shoes",
+ "price" : 109,
+ "size" : null,
+ "weight" : "499",
+ "dimension" : {
+   "unit" : "cm",
+   "length" : 22,
+   "height" : 10,
+   "width" : 22
+ },
+ "color" : "red-flash",
+ "categories" : ["Sport", "Fitness"],
+ "tags" : ["Running", "Sport", "Shoes","Swiss"]
+}

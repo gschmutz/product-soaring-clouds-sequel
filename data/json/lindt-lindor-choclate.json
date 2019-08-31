@@ -1,0 +1,19 @@
+{
+ "productId": "974b3737-9a72-4961-aa87-8fb1e4ea6e36",
+ "code" : "B000L423IM",
+ "name" : "Lindt Lindor Assorted Chocolate Cornet 200 g (Pack of 2)",
+ "description" : "Inspired by a secret recipe, the master chocolatiers of Lindt have created a chocolate masterpiece. This delicious Lindt chocolate shell enrobes a delectably smooth filling, once you break its shell, the filling will start to melt, and so will you.",
+ "imageUrl" : "lindt-lindor",
+ "price" : 7,
+ "size" : null,
+ "weight" : "0.4",
+ "dimension" : {
+   "unit" : "cm",
+   "length" : 17,
+   "height" : 14,
+   "width" : 9
+ },
+ "color" : "assorted",
+ "categories" : ["Choclate", "Food"],
+ "tags" : ["Grocery ", "Chocolate Boxes & Gifts", "Food", "Confectionery", "Swiss"]
+}
